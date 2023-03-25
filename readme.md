@@ -6,18 +6,7 @@ Based on Today's Lesson you must:
 - Create a New Frontend Application
 - Consume the Blog API you created
 - Be able to view, add, update and delete blog posts
-- Be deployed to Netlify, Vercel, or Render.com
-
+- Be deployed to Netlify
 -------
-
-
-
-
-
--------
-## Resources to Learn More
-
--------
-
 
 
