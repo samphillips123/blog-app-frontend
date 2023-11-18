@@ -12,6 +12,31 @@ import { Route, Routes } from 'react-router-dom'
 const apiURL = 'http://localhost:8000'
 
 function App() {
+  // State for Posts
+  const [posts, setPosts] = useState([])
+
+  // FUNCTIONS
+  // show
+  const getPosts = async () => {
+    const response = await fetch(`${apiURL}/blogs/`)
+    const data = await response.json()
+    console.log(data)
+    setPosts(data)
+  }
+
+  // create/edit
+
+
+  // delete
+
+
+  // useEffect
+  useEffect(() => {
+    getPosts()
+  }, [])
+
+
+
   return (
     <div className="App">
       <h1>Blog App</h1>
@@ -19,7 +44,7 @@ function App() {
         <Route 
           exact
           path='/'
-          element={<AllPosts />}
+          element={<AllPosts posts={posts} />}
         />
         <Route 
           exact
