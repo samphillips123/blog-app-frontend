@@ -49,7 +49,7 @@ function App() {
         <Route 
           exact
           path='/blog/:id'
-          element={<SinglePost />}
+          element={<SinglePost posts={posts} />}
         />
         <Route 
           exact
