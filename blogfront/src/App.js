@@ -9,7 +9,8 @@ import { useState, useEffect } from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 // API URL
-const apiURL = 'http://localhost:8000'
+// const apiURL = 'http://localhost:8000'
+const apiURL = 'https://safe-headland-46797-3a3b29a15937.herokuapp.com'
 
 function App() {
   // State for Posts
