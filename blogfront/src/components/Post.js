@@ -4,13 +4,15 @@ import { Link, useNavigate } from 'react-router-dom'
 const divStyle = {
     textAlign: 'center',
     border: '3px solid',
+    'border-radius': '15px',
     margin: '10px auto',
-    width: '80%'
+    width: '80%',
+    'background-color': 'lightgrey'
 }
   
 const titleStyle = {
-    color: '#006643',
-    fontSize: '3em'
+    color: 'indigo',
+    fontSize: '2em'
 }
 
 const Post = ({post, deletePost}) => {
