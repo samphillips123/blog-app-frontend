@@ -4,7 +4,7 @@ import AllPosts from './pages/AllPosts'
 import Form from './pages/Form'
 import SinglePost from './pages/SinglePost'
 // import hooks
-import {useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 // import react-router
 import { Route, Routes } from 'react-router-dom'
 
@@ -25,7 +25,27 @@ function App() {
   }
 
   // create/edit
-
+  const handleFormSubmission = async (data, type) => {
+    if (type === 'new') {
+      const response = await fetch(`${apiURL}/blogs/`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      getPosts()
+    } else {
+      const response = await fetch(`${apiURL}/blogs/${data.id}/`, {
+        method: 'put',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      })
+      getPosts()
+    }
+  }
 
   // delete
 
@@ -41,25 +61,25 @@ function App() {
     <div className="App">
       <h1>Blog App</h1>
       <Routes>
-        <Route 
+        <Route
           exact
           path='/'
           element={<AllPosts posts={posts} />}
         />
-        <Route 
+        <Route
           exact
           path='/blog/:id'
           element={<SinglePost posts={posts} />}
         />
-        <Route 
+        <Route
           exact
           path='/new'
-          element={<Form />}
+          element={<Form posts={posts} handleSubmit={handleFormSubmission} buttonLabel='Add Blog Post' formType='new' />}
         />
-        <Route 
+        <Route
           exact
           path='/edit/:id'
-          element={<Form />}
+          element={<Form posts={posts} handleSubmit={handleFormSubmission} buttonLabel='Edit Blog Post' formType='edit' />}
         />
       </Routes>
     </div>
