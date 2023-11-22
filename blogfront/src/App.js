@@ -48,7 +48,12 @@ function App() {
   }
 
   // delete
-
+  const deletePost = async (id) => {
+    const response = await fetch(`${apiURL}/blogs/${id}`, {
+      method: 'delete'
+    })
+    getPosts()
+  }
 
   // useEffect
   useEffect(() => {
@@ -64,7 +69,7 @@ function App() {
         <Route
           exact
           path='/'
-          element={<AllPosts posts={posts} />}
+          element={<AllPosts posts={posts} deletePost={deletePost} />}
         />
         <Route
           exact

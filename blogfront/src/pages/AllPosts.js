@@ -7,7 +7,7 @@ const AllPosts = (props) => (
             <button>Add Blog Post</button>
         </Link>
         {props.posts.map(
-            (post) => <Post post={post} key={post.id} />
+            (post) => <Post post={post} key={post.id} deletePost={props.deletePost} />
         )}
     </>
 )

@@ -13,8 +13,14 @@ const titleStyle = {
     fontSize: '3em'
 }
 
-const Post = ({post}) => {
+const Post = ({post, deletePost}) => {
     const navigate = useNavigate()
+
+    const handleDelete = (event) => {
+        event.preventDefault()
+        deletePost(post.id)
+        navigate('/')
+    }
     
     return (
         <div style={divStyle}>
@@ -22,6 +28,9 @@ const Post = ({post}) => {
                 <h2 style={titleStyle}>{post.title}</h2>
             </Link>
             <h3>{post.body}</h3>
+            <form onSubmit={handleDelete}>
+                <input type='submit' value='Delete' />
+            </form>
         </div>
     )
 }
